@@ -1,0 +1,26 @@
+use std
+use regex
+
+/*if the input contains the first argument (as a regex)*/
+/*return true, otherwise return false*/
+
+const main = {args : byte[:][:]
+	var r
+
+	r = std.slurp("/dev/stdin")
+	match r
+	| `std.Ok dat:
+		match regex.compile(args[1])
+		| `std.Ok re:
+			match regex.search(re, r)
+			| `std.Some matches:
+				std.put("success")
+			| `std.None:
+				std.put("failure")
+			;;
+		| `std.Fail msg:
+			std.put("ic: {}, exiting.\n", msg)
+		;;
+	| `std.Fail msg:	std.put("ic: {}, exiting.\n", msg)
+	;;
+}
