@@ -1,7 +1,7 @@
 #!/usr/bin/env lua
 
 if #arg ~= 1 then
-	print("ic STR")
+	print("ic REGEX")
 	os.exit(255)
 end
 

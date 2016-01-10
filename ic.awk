@@ -4,7 +4,7 @@ BEGIN {
 	ret=1
 	if(ARGC!=2)
 	{
-		print("ic STR") > "/dev/stderr";
+		print("ic REGEX") > "/dev/stderr";
 		exit(255);
 	}
 	pat=ARGV[1]
