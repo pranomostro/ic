@@ -5,19 +5,17 @@ use regex
 /*return true, otherwise return false*/
 
 const main = {args : byte[:][:]
-	var r
+	if args.len != 2
+		std.put("ic REGEX\n")
+		std.exit(256)
+	;;
 
-	r = std.slurp("/dev/stdin")
+	var r = std.slurp("/dev/stdin")
 	match r
 	| `std.Ok dat:
 		match regex.compile(args[1])
 		| `std.Ok re:
-			match regex.search(re, r)
-			| `std.Some matches:
-				std.put("success")
-			| `std.None:
-				std.put("failure")
-			;;
+			std.put("write the regex searching function, idiot\n")
 		| `std.Fail msg:
 			std.put("ic: {}, exiting.\n", msg)
 		;;
