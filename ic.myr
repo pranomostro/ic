@@ -1,24 +1,30 @@
 use std
-use regex
 
-/*if the input contains the first argument (as a regex)*/
+/*if the input contains the first argument*/
 /*return true, otherwise return false*/
+
+/*TODO: do not slurp the input, use bio.readln*/
 
 const main = {args : byte[:][:]
 	if args.len != 2
-		std.put("ic REGEX\n")
-		std.exit(256)
+		std.put("ic STR\n")
+		std.exit(255)
 	;;
 
-	var r = std.slurp("/dev/stdin")
-	match r
-	| `std.Ok dat:
-		match regex.compile(args[1])
-		| `std.Ok re:
-			std.put("write the regex searching function, idiot\n")
-		| `std.Fail msg:
-			std.put("ic: {}, exiting.\n", msg)
-		;;
-	| `std.Fail msg:	std.put("ic: {}, exiting.\n", msg)
+	var content, lines
+
+	match std.slurp("/dev/stdin")
+	| `std.Fail m:	std.put("ic: could not open stdin.\n")
+			std.exit(254)
+	| `std.Ok d: content=d
 	;;
+
+	lines=std.strsplit(content, "\n")
+	for l in lines
+		match std.strfind(l, args[1])
+		| `std.Some idx: std.exit(0)
+		| `std.None:
+		;;
+	;;
+	std.exit(1)
 }
