@@ -19,9 +19,8 @@ const main = {args : byte[:][:]
 	;;
 
 	for l in bio.lineiter(input)
-		match std.strfind(l, args[1])
-		| `std.Some i:	std.exit(0)
-		| `std.None:
+		if std.strhas(l, args[1])
+			std.exit(0);
 		;;
 	;;
 
