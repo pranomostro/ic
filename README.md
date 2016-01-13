@@ -22,7 +22,6 @@ If you use mbld, use
 	mbld install
 
 to install ic on your system.
-Versions of ic in other languages are also in the repo.
 
 License
 =======
