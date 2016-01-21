@@ -18,7 +18,7 @@ const main = {args : byte[:][:]
 	| `std.Ok f: input=f
 	;;
 
-	for l in bio.lineiter(input)
+	for l in bio.byline(input)
 		if std.strhas(l, args[1])
 			std.exit(0);
 		;;
