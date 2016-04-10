@@ -21,8 +21,8 @@ returns true if a rlwrap process is running and false otherwise.
 
 .SH BUGS
 Using ic in pipes does not really work well, since results of
-pipes can't be examined properly. Possible solution: let it print
-"yes" or "no" if the string was found or not.
+pipes can't be examined properly on unix (plan 9 does it well, though).
+Possible solution: let it print "yes" or "no" if the string was found or not.
 .TP
 ic does not support regular expressions (yet).
 .TP
