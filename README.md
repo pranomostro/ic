@@ -11,7 +11,7 @@ More information is given in the man-page.
 Requirements
 ------------
 
-* [the myrddin compiler and standard library](www.github.com/oridb/mc)
+* [the myrddin compiler and standard library](https://www.github.com/oridb/mc)
 * optional: mbld (included with the standard myrddin compiler)
 
 Installation
