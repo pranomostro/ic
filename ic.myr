@@ -11,14 +11,7 @@ const main = {args : byte[:][:]
 		std.exit(255)
 	;;
 
-	var input
-
-	match bio.open("/dev/stdin", bio.Rd)
-	| `std.Fail m:	std.fatal("ic: could not open /dev/stdin.\n")
-			std.exit(254)
-	| `std.Ok f: input=f
-	;;
-
+	var input=std.try(bio.open("/dev/stdin", bio.Rd));
 	var re=std.try(regex.compile(args[1]));
 
 	for l in bio.byline(input)
