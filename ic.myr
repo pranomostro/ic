@@ -1,26 +1,30 @@
 use bio
 use std
+use regex
 
 /*if the input contains the first argument*/
 /*return true, otherwise return false*/
 
 const main = {args : byte[:][:]
 	if args.len != 2
-		std.put("ic STR\n")
+		std.put("ic REGEX\n")
 		std.exit(255)
 	;;
 
 	var input
 
 	match bio.open("/dev/stdin", bio.Rd)
-	| `std.Fail m:	std.put("ic: could not open /dev/stdin.\n")
+	| `std.Fail m:	std.fatal("ic: could not open /dev/stdin.\n")
 			std.exit(254)
 	| `std.Ok f: input=f
 	;;
 
+	var re=std.try(regex.compile(args[1]));
+
 	for l in bio.byline(input)
-		if std.strhas(l, args[1])
-			std.exit(0);
+		match regex.search(re, l)
+		| `std.Some p: std.exit(0);
+		| `std.None:
 		;;
 	;;
 

@@ -3,10 +3,10 @@
 ic \- input contains
 
 .SH SYNOPSIS
-ic STR
+ic REGEX
 
 .SH DESCRIPTION
-ic returns 0 (true) if it's input contains STR, and
+ic returns 0 (true) if it's input contains REGEX, and
 returns 1 (false) if it encounters EOF and didn't find
 STR in any line.
 
@@ -23,8 +23,6 @@ returns true if a rlwrap process is running and false otherwise.
 Using ic in pipes does not really work well, since results of
 pipes can't be examined properly on unix (plan 9 does it well, though).
 Possible solution: let it print "yes" or "no" if the string was found or not.
-.TP
-ic does not support regular expressions (yet).
 .TP
 ic can be easily written in any language, so why choose myrddin?
 .TP
