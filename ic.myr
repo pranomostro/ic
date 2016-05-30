@@ -11,8 +11,7 @@ const main = {args : byte[:][:]
 		std.exit(255)
 	;;
 
-	var input;
-	input.fd=std.In;
+	var input=bio.mkfile(std.In, bio.Rd);
 	var re=std.try(regex.compile(args[1]));
 
 	for l in bio.byline(input)
