@@ -11,7 +11,8 @@ const main = {args : byte[:][:]
 		std.exit(255)
 	;;
 
-	var input=std.try(bio.open("/dev/stdin", bio.Rd));
+	var input;
+	input.fd=std.In;
 	var re=std.try(regex.compile(args[1]));
 
 	for l in bio.byline(input)
