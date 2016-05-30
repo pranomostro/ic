@@ -6,6 +6,7 @@ use regex
 /*return true, otherwise return false*/
 
 const main = {args : byte[:][:]
+	/*does not use optparse because it has to exit with 255*/
 	if args.len != 2
 		std.put("ic REGEX\n")
 		std.exit(255)
