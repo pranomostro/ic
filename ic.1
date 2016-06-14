@@ -10,7 +10,7 @@ ic returns 0 (true) if it's input contains REGEX, and
 returns 1 (false) if it encounters EOF and didn't find
 STR in any line.
 
-.SH EXAMPLE
+.SH EXAMPLES
 .TP
 .B ic test </dev/urandom
 reads from /dev/urandom until it finds the string test
@@ -20,17 +20,15 @@ test.
 returns true if a rlwrap process is running and false otherwise.
 
 .SH BUGS
-Using ic in pipes does not really work well, since results of
-pipes can't be examined properly on unix (plan 9 does it well, though).
+Using ic in pipes does not really work well, since results of pipes
+can't be examined properly on unix (plan 9 does it really good, though).
 Possible solution: let it print "yes" or "no" if the string was found or not.
 .TP
 ic can be easily written in any language, so why choose myrddin?
-.TP
-Okay, even grep is able to do what ic does.
-.TP
-ic is useless.
-.TP
-And slow.
+But then again-why not?
+
+.SH "SEE ALSO"
+.IR grep(1) does the same thing, faster.
 
 .SH AUTHOR
 He can be reached at pranomestro@gmail.com
