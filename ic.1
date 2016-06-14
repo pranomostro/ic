@@ -13,17 +13,23 @@ STR in any line.
 .SH EXAMPLES
 .TP
 .B ic test </dev/urandom
+.TP
 reads from /dev/urandom until it finds the string test
 test.
 .TP
 .B ps -A | ic rlwrap
+.TP
 returns true if a rlwrap process is running and false otherwise.
+
+.SH STATUS
+0 when the string was found in the input, 1 if not, and 255 when the
+usage was printed.
 
 .SH BUGS
 Using ic in pipes does not really work well, since results of pipes
 can't be examined properly on unix (plan 9 does it really good, though).
 Possible solution: let it print "yes" or "no" if the string was found or not.
-.TP
+.P
 ic can be easily written in any language, so why choose myrddin?
 But then again-why not?
 
