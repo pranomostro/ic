@@ -11,14 +11,20 @@ returns 1 (false) if it encounters EOF and didn't find
 STR in any line.
 
 .SH EXAMPLES
-.TP
-.B ic test </dev/urandom
-.TP
-reads from /dev/urandom until it finds the string test
+.PP
+.fi
+.RS
+$ ic test </dev/urandom
+.RE
+.fi
+reads from /dev/urandom until it finds the string test.
 test.
-.TP
-.B ps -A | ic rlwrap
-.TP
+.PP
+.fi
+.RS
+$ ps -A | ic rlwrap
+.RE
+.fi
 returns true if a rlwrap process is running and false otherwise.
 
 .SH STATUS
