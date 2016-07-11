@@ -1,3 +1,2 @@
-bin ic =
-	ic.myr
-;;
+bin ic = ic.myr ;;
+man = ic.1 ;;
