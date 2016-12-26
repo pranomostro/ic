@@ -8,7 +8,7 @@ use regex
 const main = {args : byte[:][:]
 	/*does not use optparse because it has to exit with 255*/
 	if args.len != 2
-		std.fatal("ic REGEX\n")
+		std.fput(std.Err, "ic REGEX\n")
 		std.exit(255)
 	;;
 
