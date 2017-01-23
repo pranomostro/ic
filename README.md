@@ -26,4 +26,4 @@ to install ic on your system.
 License
 =======
 
-See the file ./COPYING.
+See the file ./LICENSE.
