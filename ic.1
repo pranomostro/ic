@@ -3,10 +3,10 @@
 ic \- input contains
 
 .SH SYNOPSIS
-ic REGEX
+ic regex
 
 .SH DESCRIPTION
-ic returns 0 (true) if it's input contains REGEX, and
+ic returns 0 (true) if it's input contains regex, and
 returns 1 (false) if it encounters EOF and didn't find
 STR in any line.
 
@@ -36,9 +36,6 @@ Using ic in pipes does not really work well, since results of pipes
 can't be examined properly on unix.
 .br
 Possible solution: use plan9.
-.P
-ic can be easily written in any language, so why choose myrddin?
-But then again-why not?
 
 .SH "SEE ALSO"
 .IR grep(1)
