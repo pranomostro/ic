@@ -1,45 +1,51 @@
-.TH IC 1
-.SH NAME
-ic \- input contains
+.Dd May 11, 2017
+.Dt IC 1
+.Os
 
-.SH SYNOPSIS
-ic regex
+.Sh NAME
+.Nm ic
+.Nd input contains
 
-.SH DESCRIPTION
-ic returns 0 (true) if it's input contains regex, and
-returns 1 (false) if it encounters EOF and didn't find
-STR in any line.
+.Sh SYNOPSIS
+.Nm
+.Ar regex
 
-.SH EXAMPLES
-.PP
-.fi
-.RS
-$ ic test </dev/urandom
-.RE
-.fi
-reads from /dev/urandom until it finds the string test.
-test.
-.PP
-.fi
-.RS
-$ ps -A | ic rlwrap
-.RE
-.fi
-returns true if a rlwrap process is running and false otherwise.
+.Sh DESCRIPTION
+.Nm
+checks checks if its input contains
+.Ar regex .
+This is indicated by the return value.
 
-.SH STATUS
-0 when the string was found in the input, 1 if not, and 255 when the
-usage was printed.
+.Sh EXAMPLES
+Read from /dev/urandom util the string test is found:
+.Pp
+.Dl $ ic test </dev/urandom
+.Dl output of teh command
+.Pp
+Return true if a rlwrap process is running, false otherwise:
+.Pp
+.Dl $ ps -A | ic rlwrap
 
-.SH BUGS
-Using ic in pipes does not really work well, since results of pipes
-can't be examined properly on unix.
-.br
-Possible solution: use plan9.
+.Sh EXIT STATUS
+If the input contains
+.Ar regex ,
+0 is returned, if EOF is encountered before finding
+.Ar regex ,
+.Nm
+returns 1. When not given any arguments,
+.Nm
+exits with 255.
 
-.SH "SEE ALSO"
-.IR grep(1)
-does the same thing, faster.
+.Sh BUGS
+Exit values of pipes can't be properly examined on unix,
+which makes it hard to determine whether ic or another command
+failed. Possible fix: use plan9.
 
-.SH AUTHOR
-He can be reached at pranomestro@gmail.com
+.Sh SEE ALSO
+.Xr grep 1
+does the same thing, faster,
+.Xr rlwrap 1 ,
+.Xr ps 1 .
+
+.Sh AUTHORS
+.An pranomostro Aq Mt pranomestro@gmail.com
