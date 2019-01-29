@@ -15,7 +15,7 @@ const main={args : byte[:][:]
 	var input=bio.mkfile(std.In, bio.Rd)
 	var re=std.try(regex.compile(args[1]))
 
-	for l in bio.byline(input)
+	for l : bio.byline(input)
 		match regex.search(re, l)
 		| `std.Some p: std.exit(0)
 		| `std.None:
